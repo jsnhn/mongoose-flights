@@ -1,0 +1,50 @@
+@import url('https://fonts.cdnfonts.com/css/baby-sleepwear');
+
+
+body {
+  margin: 0%;
+  padding: 50px;
+  font-family: 'Baby Sleepwear', sans-serif;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(113, 200, 126, 0.88),
+    rgba(241, 212, 210, 0.5)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.arrival {
+  padding: 29px 0px 10px 87px;
+}
+
+.arrival-airport {
+  padding: 29px 0px 10px 87px;
+}
+
+.arrival-airport-code {
+  padding: 6px 0px 15px 98px;
+}
+
+a {
+  color: black;
+}
+
+.expired {
+  color: red;
+}
+
+h1 {
+  color: white;
+  font-size: 50px;
+}
+
+h2 {
+  color: white;
+  font-size: 30px;
+}
+
+td {
+  padding: 10px;
+}
+
