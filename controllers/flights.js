@@ -1,4 +1,5 @@
 const Flight = require('../models/flight')
+const Ticket = require('../models/ticket')
 
 module.exports = {
     index,
@@ -52,13 +53,17 @@ async function show(req, res) {
     try {
         const flight = await Flight.findById(req.params.id); 
         flight.destinations.sort((a, b) => b.arrival - a.arrival); //js object. unless you do flight.save() it wont be reflected in mongo
-
+        const tickets = await Ticket.find({ flight: flight._id }).populate('flight');
+    
         res.render('flights/show', {
             title: 'Flight Details',
-            flight })
+            flight,
+            tickets })
     } catch(err) {
         console.log(err)
         res.redirect('/flights')
     }
 }
+
+ 
 
