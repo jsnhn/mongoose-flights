@@ -4,24 +4,32 @@ const Ticket = require('../models/ticket')
 module.exports = {
     new: newTicket,
     create,
+    delete: deleteTicket,
 };
 
 async function newTicket (req, res) {
     const flight = await Flight.findById(req.params.id); 
-    const tickets = await Ticket.find({});
     res.render('tickets/new', {
         title: 'Add Ticket',
-        tickets,
         flight
     })
 }
 
 async function create(req, res) {
     try {
-        req.body.flight = req.params.id;
+        req.body.flight = req.params.id; 
         await Ticket.create(req.body)
     } catch(err) {
         console.log(err)
     }
     res.redirect(`/flights/${req.params.id}`)
 };
+
+async function deleteTicket(req, res){
+    try {
+        await Ticket.findByIdAndDelete(req.params.id);
+    } catch (err) {
+        console.log(err)
+    }
+    res.redirect(`/flights/${req.params.id}`)
+}

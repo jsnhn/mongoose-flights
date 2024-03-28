@@ -11,8 +11,8 @@ const ticketSchema = new Schema ({
         min: 0
     },
     flight: {
-        type: Schema.Types.ObjectId,
-        ref: 'Flight'
+        type: Schema.Types.ObjectId, //this can only store data that is object id. they look like strings but are objects
+        ref: 'Flight', // letting mongoose know whatever id this is, it is pointing to the flight object
     },
 });
 

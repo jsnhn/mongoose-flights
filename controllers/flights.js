@@ -53,7 +53,7 @@ async function show(req, res) {
     try {
         const flight = await Flight.findById(req.params.id); 
         flight.destinations.sort((a, b) => b.arrival - a.arrival); //js object. unless you do flight.save() it wont be reflected in mongo
-        const tickets = await Ticket.find({ flight: flight._id }).populate('flight');
+        const tickets = await Ticket.find({ flight: flight._id });
     
         res.render('flights/show', {
             title: 'Flight Details',
