@@ -27,9 +27,19 @@ async function create(req, res) {
 
 async function deleteTicket(req, res){
     try {
-        await Ticket.findByIdAndDelete(req.params.id);
+        const ticket = await Ticket.findById(req.params.id);
+        await Ticket.findByIdAndDelete(req.params.id)
+        res.redirect(`/flights/${ticket.flight}`)
     } catch (err) {
         console.log(err)
     }
-    res.redirect(`/flights/${req.params.id}`)
 }
+
+// async function deleteTicket(req, res){
+//     try {
+//         await Ticket.findByIdAndDelete(req.params.id);
+//         res.redirect(`/flights/${req.params.id}`)
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }

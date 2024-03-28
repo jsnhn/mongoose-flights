@@ -44,7 +44,7 @@ async function create(req, res) {
         res.redirect('flights')
     } catch(err) {
         console.log(err)
-        res.render('/flights/new', {errorMsg: err.message})
+        res.render('flights/new', {errorMsg: err.message})
     }
 }
 
@@ -58,7 +58,7 @@ async function show(req, res) {
         res.render('flights/show', {
             title: 'Flight Details',
             flight,
-            tickets })
+            tickets, })
     } catch(err) {
         console.log(err)
         res.redirect('/flights')
