@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <h2>Flight Details</h2>
-<table>
+<table class="show-table">
   <thead>
     <tr>
       <th>Airline</th>
@@ -27,7 +27,7 @@
 </table>
   <thead>
 <h2>Tickets</h2>
-<table>
+<table class="tickets-table">
     <tr>
       <th>Seat</th>
       <th>Price</th>
@@ -39,17 +39,21 @@
         <td><%= ticket.seat %></td> 
         <td><%= ticket.price %></td>
         <td>
-        <form action="/tickets/<%= ticket._id %>?_method=DELETE" method='POST'>
-          <button type="submit">X</button>
-        </form>
+          <form action="/tickets/<%= ticket._id %>?_method=DELETE" method='POST'>
+            <button type="submit">Delete</button>
+          </form>
         </td>
       </tr>
-    <% }); %>
-  </tbody>
-</table>
+      <% }); %>
+    </tbody>
+  </table>
+  <td>
+    <a href="/flights/<%= flight._id %>/tickets/new" class="new-ticket">
+      <button type="submit">New Ticket</button>
+    </a>
+  </td> 
 
 
-<a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
 <br><br><h2>Add Destination</h2>
 <form id="add-destination" method="POST"
   action="/flights/<%= flight._id %>/destinations">
@@ -67,7 +71,7 @@
   <button type="submit">Add</button>
 </form>
 
- <table>
+ <table class="destinations-table">
     <thead>
         <tr>
           <th class="arrival">Arrival</th>

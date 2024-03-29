@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
-
 <h2>All Flights</h2>
-<table>
+<table class="index-table">
   <thead>
     <tr>
       <th>Airline</th>
       <th>Airport</th>
       <th>Flight No.</th>
-      <th>Departure</th>
+      <th class="index-departure">Departure</th>
+      <th class="index-more-information ">More Information</th>
     </tr>
   </thead>
   <tbody>
@@ -22,11 +22,9 @@
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
-            }) %>
-        </td>
-        <td> 
-          <a href="/flights/<%= flight._id %>">Details</a>
-        </td>
+              }) %>
+          </td>
+              <td><a href="/flights/<%= flight._id %>">Details</a></td>
       </tr>
       <% }); %>
   </tbody>
